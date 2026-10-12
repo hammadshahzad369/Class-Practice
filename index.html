@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Learning Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Top Header & Dark Mode Toggle -->
+    <header class="app-header">
+      <div>
+        <h1 class="main-title">Student Dashboard</h1>
+        <p class="subtitle">Complete Learning & Productivity Kit</p>
+      </div>
+      <button id="themeToggleBtn" type="button" class="btn btn-secondary">
+        🌙 Dark Mode
+      </button>
+    </header>
+
+    <!-- Task 1: Welcome Greeting -->
+    <section class="card">
+      <h2 class="card-title">1. Welcome Greeting</h2>
+      <form id="greetingForm" class="form-layout">
+        <div class="form-group">
+          <label for="visitorName">Your Name</label>
+          <input 
+            type="text" 
+            id="visitorName" 
+            placeholder="e.g., Ali or Sarah" 
+            maxlength="40"
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Say Hello</button>
+      </form>
+      <p id="greetingOutput" class="result-message" aria-live="polite"></p>
+    </section>
+
+    <!-- Task 2: Study Planner -->
+    <section class="card">
+      <div class="card-header-flex">
+        <h2 class="card-title">2. Study Planner</h2>
+        <span id="taskStats" class="badge">0 of 0 completed</span>
+      </div>
+      
+      <form id="taskForm" class="form-layout">
+        <div class="form-group">
+          <label for="taskInput">New Task Description</label>
+          <input 
+            type="text" 
+            id="taskInput" 
+            placeholder="e.g., Read Biology Chapter 3" 
+            required
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+      </form>
+
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+
+    <!-- Task 3: Bill & Tip Calculator -->
+    <section class="card">
+      <h2 class="card-title">3. Tip & Bill Calculator</h2>
+      <form id="tipForm" class="form-layout">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="billAmount">Bill Amount ($)</label>
+            <input 
+              type="number" 
+              id="billAmount" 
+              step="0.01" 
+              min="0.01" 
+              placeholder="e.g., 50.00" 
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="tipPercent">Tip Percentage (%)</label>
+            <input 
+              type="number" 
+              id="tipPercent" 
+              step="1" 
+              min="0" 
+              max="100" 
+              placeholder="e.g., 15" 
+              required
+            >
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate Tip</button>
+      </form>
+
+      <div id="tipResult" class="calc-results hidden" aria-live="polite">
+        <div class="calc-row"><span>Tip Amount:</span> <strong id="tipAmountOutput">$0.00</strong></div>
+        <div class="calc-row"><span>Total Amount:</span> <strong id="totalAmountOutput">$0.00</strong></div>
+      </div>
+      <p id="tipError" class="error-message" aria-live="polite"></p>
+    </section>
+
+    <!-- Task 4: Note Draft & Character Counter -->
+    <section class="card">
+      <h2 class="card-title">4. Quick Note (100 Char Max)</h2>
+      <div class="form-group">
+        <label for="noteInput">Type your note below:</label>
+        <textarea 
+          id="noteInput" 
+          maxlength="100" 
+          placeholder="Type something short (max 100 characters)..." 
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="counter-footer">
+        <span id="charWarning" class="warning-badge hidden">⚠️ Reaching length limit!</span>
+        <span id="charCount" class="char-count">0 / 100 characters</span>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
